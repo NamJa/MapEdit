@@ -121,7 +121,7 @@ public class GridEditor : Editor {
         Ray ray = Camera.current.ScreenPointToRay(new Vector3(e.mousePosition.x, -e.mousePosition.y + Camera.current.pixelHeight));
         Vector3 mousePos = ray.origin;
 
-        if(e.isMouse && e.type == EventType.MouseDown && e.button == 0)
+        if((e.isMouse & e.type == EventType.MouseDown && e.button == 0) || (e.isMouse & e.type == EventType.MouseDrag && e.button == 0))
         {
             GUIUtility.hotControl = controlId;
             e.Use();
@@ -142,7 +142,7 @@ public class GridEditor : Editor {
             }
         }
 
-        if(e.isMouse & e.type == EventType.MouseDown && e.button == 1)
+        if((e.isMouse & e.type == EventType.MouseDown && e.button == 1) || (e.isMouse & e.type == EventType.MouseDrag && e.button == 1))
         {
             GUIUtility.hotControl = controlId;
             e.Use();
